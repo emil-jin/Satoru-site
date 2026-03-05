@@ -78,3 +78,51 @@ p {
     box-shadow: 0 0 30px #5dade2;
     color: black;
 }
+
+/* --- Style de la Barre de Recherche --- */
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0 50px 0; /* Espace autour de la barre */
+    gap: 10px;
+}
+
+#searchInput {
+    width: 60%;
+    padding: 12px 25px;
+    border: 2px solid #ff0000; /* Rappel du rouge de l'aura */
+    border-radius: 50px; /* Bords très arrondis */
+    background: rgba(20, 20, 20, 0.8); /* Fond sombre semi-transparent */
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.4s ease;
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
+}
+
+#searchInput:focus {
+    width: 70%; /* La barre s'allonge quand on clique dessus */
+    border-color: #fff; /* Elle devient blanche au focus */
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.6); /* Lueur rouge intense */
+}
+
+.btn-search {
+    background: #ff0000;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.btn-search:hover {
+    transform: rotate(15deg) scale(1.1); /* Petite rotation fun au survol */
+    background: #fff;
+    box-shadow: 0 0 15px #fff;
+}

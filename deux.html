@@ -1,7 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalogue des Sortilèges HG</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
 <main class="container">
-    <h2 class="section-title">Catalogue des Sortilèges (Animés)</h2>
+    <h2 class="section-title">Catalogue des Sortilèges HG</h2>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Rechercher un sortilège (animé)..." onkeyup="searchAnime()">
+        <button class="btn-search">🔍</button>
+    </div>
     
-    <div class="grid-anime">
+    <div class="grid-anime" id="animeGrid">
+        
         <div class="anime-card">
             <div class="status-badge">HD</div>
             <img src="satoru.jpg" alt="Jujutsu Kaisen">
@@ -21,5 +37,26 @@
                 <a href="#" class="btn-play">▶ Regarder</a>
             </div>
         </div>
-    </div>
+
+        </div>
 </main>
+
+<script>
+// Fonction pour filtrer les animés en temps réel
+function searchAnime() {
+    let input = document.getElementById('searchInput').value.toLowerCase();
+    let cards = document.getElementsByClassName('anime-card');
+
+    for (let i = 0; i < cards.length; i++) {
+        let title = cards[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
+        if (title.includes(input)) {
+            cards[i].style.display = "";
+        } else {
+            cards[i].style.display = "none";
+        }
+    }
+}
+</script>
+
+</body>
+</html>
