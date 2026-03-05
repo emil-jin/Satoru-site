@@ -126,3 +126,46 @@ p {
     background: #fff;
     box-shadow: 0 0 15px #fff;
 }
+/* --- Ajustement du Container pour centrer le contenu --- */
+.container {
+    padding: 0;
+    background: url('satoru.jpg') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centre horizontalement */
+    justify-content: flex-start;
+}
+
+/* --- Titre et Barre de recherche centrés --- */
+.section-title {
+    margin-top: 10vh; /* Descend un peu le titre du haut */
+    text-align: center;
+    font-size: 3rem;
+    color: white;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 0 #ff0000, -2px -2px 0 #ff0000, 2px -2px 0 #ff0000, -2px 2px 0 #ff0000;
+    font-family: 'Arial Black', sans-serif;
+    z-index: 2;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    z-index: 2;
+}
+
+/* --- La Grille (plus bas pour ne pas cacher Satoru) --- */
+.grid-anime {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+    width: 90%;
+    padding-bottom: 50px;
+    z-index: 1;
+}
+
