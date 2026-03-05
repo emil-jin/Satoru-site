@@ -127,45 +127,46 @@ p {
     box-shadow: 0 0 15px #fff;
 }
 /* --- Ajustement du Container pour centrer le contenu --- */
+
+/* --- Centrage total sur l'image Satoru --- */
 .container {
-    padding: 0;
     background: url('satoru.jpg') no-repeat center center fixed;
     background-size: cover;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centre horizontalement */
-    justify-content: flex-start;
+    align-items: center;    /* Centre tout horizontalement */
+    justify-content: center; /* Centre tout verticalement au milieu de l'image */
+    padding: 20px;
+    text-align: center;
 }
 
-/* --- Titre et Barre de recherche centrés --- */
+/* On ajuste le titre pour qu'il ne soit pas collé à la barre */
 .section-title {
-    margin-top: 10vh; /* Descend un peu le titre du haut */
-    text-align: center;
     font-size: 3rem;
+    margin-bottom: 20px;
     color: white;
     text-transform: uppercase;
-    text-shadow: 2px 2px 0 #ff0000, -2px -2px 0 #ff0000, 2px -2px 0 #ff0000, -2px 2px 0 #ff0000;
+    text-shadow: 2px 2px 0 #ff0000, -2px -2px 0 #ff0000;
     font-family: 'Arial Black', sans-serif;
-    z-index: 2;
 }
 
+/* La barre de recherche reste centrée grâce au container flex */
 .search-container {
-    display: flex;
-    justify-content: center;
     width: 100%;
-    margin-top: 20px;
-    margin-bottom: 50px;
-    z-index: 2;
+    max-width: 600px;
+    display: flex;
+    gap: 10px;
+    margin-bottom: 40px; /* Espace avant de commencer la liste des animés */
 }
 
-/* --- La Grille (plus bas pour ne pas cacher Satoru) --- */
+/* On s'assure que la grille d'animés s'affiche bien en dessous */
 .grid-anime {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 30px;
-    width: 90%;
-    padding-bottom: 50px;
-    z-index: 1;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
 }
+
 
