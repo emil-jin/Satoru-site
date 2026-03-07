@@ -2,8 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catalogue des Sortilèges HG</title>
+    <title>Catalogue HG</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,51 +11,39 @@
     <h2 class="section-title">Catalogue des Sortilèges HG</h2>
 
     <div class="search-container">
-        <input type="text" id="searchInput" placeholder="Rechercher un sortilège (animé)..." onkeyup="searchAnime()">
-        <button class="btn-search">🔍</button>
+        <input type="text" id="searchInput" placeholder="Rechercher..." onkeyup="searchAnime()">
     </div>
     
     <div class="grid-anime" id="animeGrid">
         
         <div class="anime-card">
-            <div class="status-badge">HD</div>
-            <img src="satoru.jpg" alt="Jujutsu Kaisen">
+            <img src="https://m.media-amazon.com/images/M/MV5BNGY4MTg3NzgtMmFkZi00NTg5LWExYmEtMjI3ZmFjZGU1YWXYXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Jujutsu Kaisen">
             <div class="card-info">
                 <h3>Jujutsu Kaisen</h3>
-                <p>Action, Fantastique</p>
-                <a href="#" class="btn-play">▶ Regarder</a>
-            </div>
-        </div>
-
-        <div class="anime-card">
-            <div class="status-badge">Film</div>
-            <img src="gojo.jpg" alt="Demon Slayer">
-            <div class="card-info">
-                <h3>Demon Slayer</h3>
-                <p>Action, Aventure</p>
                 <a href="lecteur.html" class="btn-play">▶ Regarder</a>
             </div>
         </div>
 
+        <div class="anime-card">
+            <img src="https://m.media-amazon.com/images/M/MV5BMzQ5ZDkzZDgtMWU3YS00MjQyLWFlNmItZDYzNmRhZDA0OTcyXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Demon Slayer">
+            <div class="card-info">
+                <h3>Demon Slayer</h3>
+                <a href="lecteur.html" class="btn-play">▶ Regarder</a>
+            </div>
         </div>
+
+    </div>
 </main>
 
 <script>
-// Fonction pour filtrer les animés en temps réel
 function searchAnime() {
     let input = document.getElementById('searchInput').value.toLowerCase();
     let cards = document.getElementsByClassName('anime-card');
-
     for (let i = 0; i < cards.length; i++) {
         let title = cards[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
-        if (title.includes(input)) {
-            cards[i].style.display = "";
-        } else {
-            cards[i].style.display = "none";
-        }
+        cards[i].style.display = title.includes(input) ? "" : "none";
     }
 }
 </script>
-
 </body>
 </html>
