@@ -1,4 +1,13 @@
-/* Reset pour enlever les marges par défaut */
+/* --- CONFIGURATION GÉNÉRALE --- */
+:root {
+    --primary-blue: #00d4ff;
+    --primary-red: #ff0000;
+    --bg-dark: #0a0a0a;
+    --card-bg: #1a1a1a;
+    --text-main: #ffffff;
+    --text-dim: #b3b3b3;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -6,16 +15,16 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #000;
-    color: white;
-    overflow: hidden; /* Empêche de scroller sur l'accueil */
+    font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    line-height: 1.6;
 }
 
+/* --- PAGE D'ACCUEIL (INDEX.HTML) --- */
 .hero {
-    height: 100vh; /* Prend toute la hauteur de l'écran */
+    height: 100vh;
     width: 100%;
-    /* REMPLACE 'gojo.jpg' PAR LE NOM DE TA PHOTO DANS TON DOSSIER */
     background: url('gojo.jpg') no-repeat center center/cover;
     display: flex;
     align-items: center;
@@ -23,150 +32,190 @@ body {
     position: relative;
 }
 
-/* Un voile noir pour que le texte soit lisible sur l'image */
 .overlay {
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.4);
+    background: radial-gradient(circle, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.8) 100%);
 }
 
 .content {
     position: relative;
     text-align: center;
-    z-index: 1;
+    z-index: 10;
 }
 
-h1 {
-    font-size: 4rem;
-    letter-spacing: 8px;
-    color: #fff;
-    /* On utilise le bleu néon de l'image pour l'ombre */
-    text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff, 0 0 40px #00d4ff; 
-    margin-bottom: 10px;
-}
-
-.btn-infinite {
-    padding: 15px 30px;
-    border: 2px solid #00d4ff; /* Bleu assorti à l'oeil */
-    background: transparent;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.4s;
-}
-
-
-p {
-    font-style: italic;
-    font-size: 1.2rem;
-    margin-bottom: 30px;
+.content h1 {
+    font-size: clamp(3rem, 10vw, 6rem);
+    font-weight: 900;
+    letter-spacing: 15px;
+    text-shadow: 0 0 20px var(--primary-blue), 0 0 40px var(--primary-blue);
+    margin-bottom: 20px;
 }
 
 .btn-infinite {
-    padding: 15px 30px;
-    border: 2px solid #5dade2;
+    padding: 18px 40px;
+    border: 2px solid var(--primary-blue);
+    background: rgba(0, 0, 0, 0.5);
     color: white;
     text-decoration: none;
     font-weight: bold;
     text-transform: uppercase;
-    transition: 0.3s;
+    letter-spacing: 2px;
+    border-radius: 50px;
+    transition: all 0.4s ease;
 }
 
 .btn-infinite:hover {
-    background: #5dade2;
-    box-shadow: 0 0 30px #5dade2;
-    color: black;
+    background: var(--primary-blue);
+    box-shadow: 0 0 30px var(--primary-blue);
+    color: #000;
+    transform: scale(1.1);
 }
 
-/* --- Style de la Barre de Recherche --- */
-
-.search-container {
-    display: flex;
-    justify-content: center;
-    margin: 30px 0 50px 0; /* Espace autour de la barre */
-    gap: 10px;
-}
-
-#searchInput {
-    width: 60%;
-    padding: 12px 25px;
-    border: 2px solid #ff0000; /* Rappel du rouge de l'aura */
-    border-radius: 50px; /* Bords très arrondis */
-    background: rgba(20, 20, 20, 0.8); /* Fond sombre semi-transparent */
-    color: white;
-    font-size: 1rem;
-    outline: none;
-    transition: all 0.4s ease;
-    box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
-}
-
-#searchInput:focus {
-    width: 70%; /* La barre s'allonge quand on clique dessus */
-    border-color: #fff; /* Elle devient blanche au focus */
-    box-shadow: 0 0 20px rgba(255, 0, 0, 0.6); /* Lueur rouge intense */
-}
-
-.btn-search {
-    background: #ff0000;
-    border: none;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 1.2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.3s;
-}
-
-.btn-search:hover {
-    transform: rotate(15deg) scale(1.1); /* Petite rotation fun au survol */
-    background: #fff;
-    box-shadow: 0 0 15px #fff;
-}
-/* --- Ajustement du Container pour centrer le contenu --- */
-
-/* --- Centrage total sur l'image Satoru --- */
+/* --- PAGE CATALOGUE (DEUX.HTML) --- */
 .container {
-    background: url('satoru.jpg') no-repeat center center fixed;
+    padding: 40px 5%;
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.95)), url('satoru.jpg');
     background-size: cover;
+    background-attachment: fixed;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center;    /* Centre tout horizontalement */
-    justify-content: center; /* Centre tout verticalement au milieu de l'image */
-    padding: 20px;
+    align-items: center;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 10px var(--primary-red);
     text-align: center;
 }
 
-/* On ajuste le titre pour qu'il ne soit pas collé à la barre */
-.section-title {
-    font-size: 3rem;
-    margin-bottom: 20px;
-    color: white;
-    text-transform: uppercase;
-    text-shadow: 2px 2px 0 #ff0000, -2px -2px 0 #ff0000;
-    font-family: 'Arial Black', sans-serif;
-}
-
-/* La barre de recherche reste centrée grâce au container flex */
+/* Barre de recherche style Streaming */
 .search-container {
     width: 100%;
-    max-width: 600px;
+    max-width: 700px;
     display: flex;
-    gap: 10px;
-    margin-bottom: 40px; /* Espace avant de commencer la liste des animés */
+    margin-bottom: 50px;
+    position: relative;
 }
 
-/* On s'assure que la grille d'animés s'affiche bien en dessous */
+#searchInput {
+    width: 100%;
+    padding: 15px 25px;
+    border-radius: 30px;
+    border: 1px solid #333;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    color: white;
+    font-size: 1.1rem;
+    outline: none;
+    transition: 0.3s;
+}
+
+#searchInput:focus {
+    border-color: var(--primary-red);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+}
+
+.btn-search {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--primary-red);
+    border: none;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Grille de films/séries */
 .grid-anime {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 25px;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1400px;
 }
 
+.anime-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    border: 1px solid #222;
+}
 
+.anime-card:hover {
+    transform: scale(1.05);
+    border-color: var(--primary-red);
+    z-index: 5;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+}
+
+.anime-card img {
+    width: 100%;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+}
+
+.status-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: var(--primary-red);
+    font-size: 0.7rem;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.card-info {
+    padding: 15px;
+    background: linear-gradient(to top, #000, transparent);
+}
+
+.card-info h3 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-info p {
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    margin-bottom: 15px;
+}
+
+.btn-play {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: #fff;
+    color: #000;
+    text-decoration: none;
+    padding: 8px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.btn-play:hover {
+    background: var(--primary-red);
+    color: #fff;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .content h1 { font-size: 3rem; }
+    .grid-anime { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+}
