@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Lecture | HG Stream</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body style="background: #000;">
+
+<div class="video-page-container">
+    <a href="deux.html" style="color: white; text-decoration: none; align-self: flex-start; margin-bottom: 10px;">❮ Retour</a>
+    
+    <div class="video-wrapper">
+        <iframe id="mainPlayer" src="https://streamtape.com/e/WoV886R9AlIbJeP" allowfullscreen></iframe>
+    </div>
+
+    <div class="video-details">
+        <h2 id="animeTitle">Jujutsu Kaisen</h2>
+        
+        <div class="selector-container">
+            <select class="custom-select" id="langSelect">
+                <option value="vostfr">VOSTFR</option>
+                <option value="vf">Version Française (VF)</option>
+            </select>
+
+            <select class="custom-select" id="seasonSelect">
+                <option value="1">Saison 01</option>
+                <option value="2">Saison 02</option>
+            </select>
+        </div>
+
+        <p style="text-align: left; margin-bottom: 10px; color: #aaa;">Épisodes :</p>
+        <div class="episodes-grid">
+            <button class="episode-btn active" onclick="changeEpisode('WoV886R9AlIbJeP', this)">01</button>
+            <button class="episode-btn" onclick="changeEpisode('ID_EPISODE_2', this)">02</button>
+            <button class="episode-btn" onclick="changeEpisode('ID_EPISODE_3', this)">03</button>
+            <button class="episode-btn" onclick="changeEpisode('ID_EPISODE_4', this)">04</button>
+            <button class="episode-btn" onclick="changeEpisode('ID_EPISODE_5', this)">05</button>
+        </div>
+
+        <div class="download-section">
+            <a href="#" class="btn-download">📥 Télécharger l'épisode</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    function changeEpisode(videoID, btn) {
+        // Change la source de l'iframe
+        document.getElementById('mainPlayer').src = "https://streamtape.com/e/" + videoID;
+        
+        // Gère l'apparence des boutons
+        let buttons = document.getElementsByClassName('episode-btn');
+        for (let b of buttons) b.classList.remove('active');
+        btn.classList.add('active');
+    }
+</script>
+
+</body>
+</html>
